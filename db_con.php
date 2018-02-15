@@ -1,18 +1,20 @@
 <?php
+
 $server = "localhost";
-$user = "ADMIN";
-$pass = "LocalHorse";
-$db ="blogg";
+$user = "admin";
+$pass = "localhorse";
 
-//create connection //
-$conn = new mysql($server, $user‚ $pass‚ $db);
 
-//check connection //
+// Createing connection
+$conn = new mysqli($server, $user, $pass);
+
+// Checking Connection
 if ($conn->connect_error) {
-  die("connection failed" . $conn->connect_error);
+  die("Connection FAILD: " . $conn->connect_error);
 }
 
-else {
-  echo "connection success";
+else{
+  echo "Connection established";
 }
- ?>
+
+?>
