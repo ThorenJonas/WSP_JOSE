@@ -2,9 +2,9 @@
 
 //Give Active Navigation the class="highligt"
 function navigation($highlight) {
-    $start = '';
-    $kontakt = '';
-    $blogg = '';
+    $start = ' ';
+    $kontakt = ' ';
+    $blogg = ' ';
 
     if($highlight == 'Start') {
         $start = 'class="highlight"';

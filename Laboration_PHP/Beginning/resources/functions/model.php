@@ -1,11 +1,36 @@
 <?php
-// Creating new arrays:
-// Creates a blank array.
-$blankArray = array();
 
 //Creates an array with elements.
-$model = array ("A", "B", "C");
-echo $array[0];  // will output A
-echo $array[1];  // will output B
-echo $array[3];  // will give an error
+//$model = array ("Första inlägget", "Snart är det vår", "Robin presenterar sig", "Senaste inlägget");
+// ändra alla keys some '0' an
+$arr =array (
+      '0' =>array (
+            'slug' => 'value1-1',
+            'title' => 'value1-2',
+            'author' => 'value1-3',
+            'date' => 'value1-4',
+            'text' => 'value1-5'
+      ),
+      '1' =>array (
+            'slug' => 'value1-1',
+            'title' => 'value1-2',
+            'author' => 'value1-3',
+            'date' => 'value1-4',
+            'text' => 'value1-5'
+      ),
+      '2' =>array (
+            'slug' => 'value1-1',
+            'title' => 'value1-2',
+            'author' => 'value1-3',
+            'date' => 'value1-4',
+            'text' => 'value1-5'
+      ),
+      '3' =>array (
+            'slug' => 'value1-1',
+            'title' => 'value1-2',
+            'author' => 'value1-3',
+            'date' => 'value1-4',
+            'text' => 'value1-5'
+      )
+);
 ?>

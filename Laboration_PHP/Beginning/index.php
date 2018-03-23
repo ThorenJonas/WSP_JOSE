@@ -5,14 +5,16 @@ I've used this laboration to show my pupils how you can work with PHP in develop
 http://porkforge.mardby.se/index.php?title=PHP_Laboration_2_-_Projektstart,_require_och_GET
 */
 
-require ('resources/functions/functions.php');
+require 'resources/functions/functions.php';
+require 'resources/functions/model.php';
+
 // Set header correct without using HTML
 header("Content-type: text/html; charset=utf-8");
 
 // Get value from url for key page
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 
-if(empty($page)) {
+if (empty($page)) {
 	$header = 'Start';
     $content = '<div class="content">
 		Välkommen till Labb 2! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är andra labben men första labben i en serie labbar som tillsammans bygger vidare på detta projekt som vi påbörjar här. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.
@@ -21,7 +23,8 @@ if(empty($page)) {
 }
 else if($page=="blogg") {
     $header = 'Blogg';
-	include('resources/templates/all-blogg-posts-template.php');
+    $post = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_URL);
+    require 'resources/templates/all-blogg-posts-template.php';
 
 }
 else if($page=="kontakt") {
