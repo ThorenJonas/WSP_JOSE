@@ -16,16 +16,36 @@ $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 
 if (empty($page)) {
 	$header = 'Start';
-    $content = '<div class="content">
-		Välkommen till Labb 2! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är andra labben men första labben i en serie labbar som tillsammans bygger vidare på detta projekt som vi påbörjar här. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.
-	</div>';
-    include ('resources/templates/page-template.php');
+	$content = '<div class="content">Välkommen till Labb 2! Här övar vi på PHP för att bli duktiga webbserverprogrammerare. Detta är andra labben men första labben i en serie labbar som tillsammans bygger vidare på detta projekt som vi påbörjar här. Ett enkelt PHP-projekt men väl strukturerat och genomtänkt konstruerat.</div>';
+    require ('resources/templates/page-template.php');
 }
-else if($page=="blogg") {
-    $header = 'Blogg';
-    $post = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_URL);
-    require 'resources/templates/all-blogg-posts-template.php';
 
+elseif ($page == 'blogg') {
+	$header = 'Blogg';
+	$post = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_URL);
+	$template = 'all-blogg-posts';
+
+	if (!empty($post)) {
+		foreach ($model as $key => $slug) {
+			if ($model[$key]['slug'] == $post) {
+				$template = 'single-blogg-post';
+				$title = $model[$key]['title'];
+				$author = $model[$key]['author'];
+				$date = $model[$key]['date'];
+				$message = $model[$key]['text'];
+			}
+		}
+	}
+
+	elseif (empty($post)) {
+
+	}
+
+	else {
+
+	}
+
+	require ('resources/templates/' . $template . '-template.php');
 }
 else if($page=="kontakt") {
 	$header = 'Kontakt';
