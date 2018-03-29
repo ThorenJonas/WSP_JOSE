@@ -3,7 +3,7 @@
 //Creates an array with elements.
 //$model = array ("Första inlägget", "Snart är det vår", "Robin presenterar sig", "Senaste inlägget");
 // ändra alla keys some '0' an
-$arr =array (
+$model =array (
       '0' =>array (
             'slug' => 'forsta-inlagget',
             'title' => 'Första inlägget',
