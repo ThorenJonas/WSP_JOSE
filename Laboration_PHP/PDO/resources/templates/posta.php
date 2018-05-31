@@ -1,11 +1,17 @@
 <?php
-
+      require 'db_con.php';
  ?>
 
- <form class="posta" action="" method="post">
+ <form class="posta"  id="posta" action="" method="post">
        <select name="Author">
-             <option value="User_ID">Username</option>
+             <?php
+             foreach ($users as $key => $value) {
+                   echo ' <option value="' - $key . '">' . $value . '</option>';
+             }
+             ?>
        </select>
+
        <input type="text" name="" value="Headline">
        <input type="message" name="message" value="Text">
+
 </form>

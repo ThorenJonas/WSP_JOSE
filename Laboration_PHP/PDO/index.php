@@ -47,6 +47,11 @@ elseif($page == 'blogg') {
 
 	require ('resources/templates/' . $template . '-template.php');
 }
+elseif($page == 'posta') {
+	$header = 'Skapa ett inlägg';
+	$content = ' nothing right now';
+	require ('resources/templates/page-template.php');
+}
 
 // Check if $page is contacts.
 elseif($page == 'kontakt') {

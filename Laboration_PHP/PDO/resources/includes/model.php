@@ -13,12 +13,16 @@ if($pdo) {
 
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $what = $_POST["search"];
-            if (condition) {
-                  # code
+            if (!emty($what)) {
+                  $search = true;
             }
             else {
                   $search = false;
             }
+      }
+
+      if ($search) {
+            $sql = 'SELECT p.ID, p.Slug, p.Headline, CONCAT(u.First_Name, " ", u.Last_Name) AS Name, p.Creation_time, p.Text FROM Posts AS p JOIN Users AS u ON u.ID = p.User_ID WHERE p.Text LIKE "%' .$what. '%" ORDER BY P.Creation_time DESC';
       }
 
       //skapar model-array
