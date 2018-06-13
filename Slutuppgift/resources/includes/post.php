@@ -53,13 +53,13 @@ if ($pdo) {
 
     // Kommentar här
     if (isset($_POST['submit'])) {
-        $user = $_POST['author']; //Kommentar här, Ger User får samma värde som author
-        $headline = $_POST['title']; //Kommentar här, Ger Headline får samma värde som title
+        $user = $_POST['author']; //Kommentar här, Ger $User får samma värde som author
+        $headline = $_POST['title']; //Kommentar här, Ger $Headline får samma värde som title
         $headline = trim($headline);
 
-        $slug = slugify($headline); //Kommentar här,
+        $slug = slugify($headline); //Kommentar här, Ger $slug samma funktion som sluggify har.
 
-        $text = $_POST['message']; //Kommentar här,  ger Text samma värde som message.
+        $text = $_POST['message']; //Kommentar här,  ger $text samma värde som message.
 
         $sql = 'INSERT INTO Posts (User_ID, Slug, Headline, Text) VALUES ("'.$user.'", "'.$slug.'", "'.$headline.'", "'.$text.'")';
 
@@ -72,7 +72,7 @@ if ($pdo) {
         /* databasen. Tänk på att namn på tabell & kolumner i er **/
         /* databas kan skiljas något från det jag angivit i $sql. */
         /**********************************************************/
-        if($pdo->query($sql) ) {
+        if($pdo->query($sql)) {
             $message = 'Du har lyckats lägga upp ett inlägg';
         }
 
