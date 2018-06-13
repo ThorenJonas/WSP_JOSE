@@ -32,7 +32,8 @@ function slugify($slug, $strict = false) {
 
 if ($pdo) {
 
-    // Kommentar här, väljer Id och användarnamn från Users och setter dom i ordning efter namn.
+    // Kommentar här, (väljer Id och användarnamn från Users och setter dom i ordning efter namn.)
+    // variabeln $sql  väljer kollumer från ett table och sätter dom i order efter Username kollumen.
     $sql = 'SELECT ID, Username FROM Users ORDER BY Username';
     $users = array();
     foreach ($pdo->query($sql) as $row) {
@@ -51,7 +52,7 @@ if ($pdo) {
     /********** genom variablerna $headline & $text. **********/
     /**********************************************************/
 
-    // Kommentar här
+    // Kommentar här, Ser till att varriabeln inte är NULL foch Set. 
     if (isset($_POST['submit'])) {
         $user = $_POST['author']; //Kommentar här, Ger $User får samma värde som author
         $headline = $_POST['title']; //Kommentar här, Ger $Headline får samma värde som title
