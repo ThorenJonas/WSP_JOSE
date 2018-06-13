@@ -52,7 +52,7 @@ if ($pdo) {
     /********** genom variablerna $headline & $text. **********/
     /**********************************************************/
 
-    // Kommentar här, Ser till att varriabeln inte är NULL foch Set. 
+    // Kommentar här, Ser till att varriabeln inte är NULL och Set. 
     if (isset($_POST['submit'])) {
         $user = $_POST['author']; //Kommentar här, Ger $User får samma värde som author
         $headline = $_POST['title']; //Kommentar här, Ger $Headline får samma värde som title

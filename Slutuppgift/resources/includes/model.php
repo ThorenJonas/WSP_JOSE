@@ -1,14 +1,14 @@
 <?php
-require 'resources/includes/db_conn.php'; // Kommentar här
+require 'resources/includes/db_conn.php'; // Kommentar här, tvingar sidan att även ladda db_conn.php filen för att sidan ska funka. Ger tillgång till databasen.
 
 if ($pdo) {
 
-    // Kommentar här
+    // Kommentar här, Tar alla blogg inläg från databasen och visar upp efter datumet det var upplagt på.
     $sql = 'SELECT P.ID, P.Slug, P.Headline, CONCAT(U.Firstname, " ", U.Lastname) AS Name, P.Creation_time, P.Text FROM Posts AS P JOIN Users AS U ON U.ID = P.User_ID ORDER BY P.Creation_time DESC';
 
-    // Kommentar här
+    // Kommentar här, kollar ifall variabeln search är SATT, alltså att man klickat på sök-knappen.
     if (isset($_POST['search'])) {
-        // Kommentar här
+        // Kommentar här, ser till att $data har samma mening som $_POST,
         $data = $_POST['what'];
 
         /**********************************************************/
@@ -47,10 +47,10 @@ if ($pdo) {
         }
     }
 
-    // Creates model array
+    // Creates model array, foreach ger tillgång till databasen.
     $model = array();
     foreach($pdo->query($sql) as $row) {
-        // Kommentar här
+        // Kommentar här, används för att visa hela posten och printar ut det på en "egen" sida
         $model += array(
             $row['ID'] => array(
                 'slug' => $row['Slug'],
