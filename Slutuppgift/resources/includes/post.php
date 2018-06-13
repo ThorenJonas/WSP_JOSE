@@ -32,7 +32,7 @@ function slugify($slug, $strict = false) {
 
 if ($pdo) {
 
-    // Kommentar här
+    // Kommentar här, väljer Id och användarnamn från Users och setter dom i ordning efter namn.
     $sql = 'SELECT ID, Username FROM Users ORDER BY Username';
     $users = array();
     foreach ($pdo->query($sql) as $row) {
@@ -53,13 +53,13 @@ if ($pdo) {
 
     // Kommentar här
     if (isset($_POST['submit'])) {
-        $user = $_POST['author']; //Kommentar här
-        $headline = $_POST['title']; //Kommentar här
+        $user = $_POST['author']; //Kommentar här, Ger User får samma värde som author
+        $headline = $_POST['title']; //Kommentar här, Ger Headline får samma värde som title
         $headline = trim($headline);
 
-        $slug = slugify($headline); //Kommentar här
+        $slug = slugify($headline); //Kommentar här,
 
-        $text = $_POST['message']; //Kommentar här
+        $text = $_POST['message']; //Kommentar här,  ger Text samma värde som message.
 
         $sql = 'INSERT INTO Posts (User_ID, Slug, Headline, Text) VALUES ("'.$user.'", "'.$slug.'", "'.$headline.'", "'.$text.'")';
 
@@ -72,7 +72,7 @@ if ($pdo) {
         /* databasen. Tänk på att namn på tabell & kolumner i er **/
         /* databas kan skiljas något från det jag angivit i $sql. */
         /**********************************************************/
-        if(condition) {
+        if($pdo->query($sql) ) {
             $message = 'Du har lyckats lägga upp ett inlägg';
         }
 

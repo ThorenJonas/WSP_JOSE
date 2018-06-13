@@ -10,7 +10,7 @@ echo '<h2>Alla blogginlägg</h2>' . $error;
 
 <?php
 
-// Kommentar här
+// Kommentar här, 
 foreach ($model as $key => $value) {
     echo '<div class="post">';
     echo '<h3>' . $model[$key]['title'] . '</h3>';

@@ -41,13 +41,13 @@ if ($pdo) {
         /***** texter som innehåller både "Lorum" och "Ipsum." ****/
         /**********************************************************/
 
-        // Kommentar här
+        // Takes all entries/posts and puts them in the order of what date it was posted, from the latest to the first post uploaded
         if (!empty($data)) {
             $sql = 'SELECT p.ID, p.Slug, p.Headline, CONCAT(u.Firstname, " ", u.Lastname) AS Name, p.Creation_time, p.Text FROM Posts AS p JOIN Users AS u ON U.ID = P.User_ID WHERE p.Text LIKE "%'.$data.'%" ORDER BY P.Creation_time DESC';
         }
     }
 
-    // Kommentar här
+    // Creates model array
     $model = array();
     foreach($pdo->query($sql) as $row) {
         // Kommentar här
@@ -62,6 +62,7 @@ if ($pdo) {
         );
     }
 }
+//prints error info, incase of errors //
 else {
     print_r($pdo->errorInfo());
 }
